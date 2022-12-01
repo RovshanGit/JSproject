@@ -6,7 +6,6 @@ const inputText = document.querySelector('.input-text');
 const input = document.querySelector('.input');
 const sortIcon = document.querySelector('sort-icon')
 
-
 add.addEventListener('click', limit);
 inputText.addEventListener('keyup', function (e) {
     if (e.key === 'Enter') {
@@ -25,11 +24,7 @@ function limit(){
   else if (pDiv.childElementCount < 4) {
     input.style.display = 'block';
   }
-
-
-
 }
-
 add.addEventListener('click', function(){
     if (pDiv.childElementCount == 5 || inputText.value == '') {
     return
@@ -39,9 +34,7 @@ add.addEventListener('click', function(){
     pDiv.appendChild(p); 
     p.innerHTML = inputText.value;
     inputText.value = '';
-    
   
-
     const newImg = document.createElement('img');
     newImg.classList.add('newImg');
     newImg.src = '/Icons/GreyDel.svg';
@@ -56,12 +49,11 @@ add.addEventListener('click', function(){
             el.addEventListener('mouseout' ,function(e){
             e.target.src = './Icons/GreyDel.svg';
         }))
-
-
+        
     newImg.addEventListener('click', function(e) {
             pDiv.removeChild(p);
             imgDiv.removeChild(newImg)
-            if (pDiv.childElementCount == 0) {
+            if (pDiv.childElementCount == 0 || pDiv.childElementCount < 5) {
                 input.style.display = 'block';
             }
         })

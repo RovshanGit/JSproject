@@ -43,29 +43,6 @@ svg:hover * {
     fill: black;
     cursor: pointer;
 }
-/* .input {
-    position: absolute;
-} */
-/* .addtext {
-    display: inline-block;
-    justify-content: center;
-    width: 100%;
-} */
-/* .to-do-list {
-    border: 1px solid #C4C4C4;
-    border-radius: 10px;
-    padding: 10px 20px 10px 27px;
-    margin-bottom: 18px;
-    display: none;
-}
-.task {
-    display: flex;
-    justify-content:end;
-    margin-bottom: 20px;
-}
-.task img {
-    cursor: pointer;
-} */
 .Btn{
     display: flex;
     align-items: center;
@@ -131,4 +108,7 @@ cursor: pointer;
     box-sizing: border-box;
     padding: 0;
     margin: 0px;
+}
+.sort-icon svg:last-child {
+    display: none;
 }

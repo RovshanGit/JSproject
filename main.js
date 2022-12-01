@@ -4,12 +4,13 @@ const imgDiv = document.querySelector('.imgDiv')
 const mainDiv = document.querySelector('.mainDiv')
 const inputText = document.querySelector('.input-text');
 const input = document.querySelector('.input');
+const sortIcon = document.querySelector('sort-icon')
 
 
 add.addEventListener('click', limit);
 inputText.addEventListener('keyup', function (e) {
     if (e.key === 'Enter') {
-        limit();
+        
     }
 });
 
@@ -57,16 +58,21 @@ add.addEventListener('click', function(){
             pDiv.removeChild(p);
             imgDiv.removeChild(newImg)
         })
-        // if(d== 4) {
-        //     inputText.style.display = 'none';
-        //   }
-        //   if (pDiv.childElementCount == 4) {
-        //     input.style.display = 'none'
-        //   }
-        //   else if (pDiv.childElementCount ==4 ) {
-        //     inputText.style.display = 'block';
-        //   }
+})
 
-
-
+const sortDown = document.querySelector('.sort-icon svg:first-child');
+const sortUp = document.querySelector('.sort-icon svg:last-child')
+sortDown.addEventListener('click', function () {
+    this.style.display = 'none';
+    sortUp.style.display = 'inline';
+    const tasks = [...document.querySelectorAll('.pDiv p')];
+    tasks.sort((a, b) => { return parseInt(b.innerText) - parseInt(a.innerText) });
+    pDiv.replaceChildren(...pDiv.children, ...tasks)
+});
+sortUp.addEventListener('click', function () {
+    this.style.display = 'none';
+    sortDown.style.display = 'inline';
+    const tasks = [...document.querySelectorAll('.pText')];
+    tasks.sort((a, b) => { return parseInt(a.innerText) - parseInt(b.innerText) });
+    pDiv.replaceChildren(...pDiv.children, ...tasks)
 })

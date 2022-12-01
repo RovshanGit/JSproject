@@ -10,7 +10,8 @@ const sortIcon = document.querySelector('sort-icon')
 add.addEventListener('click', limit);
 inputText.addEventListener('keyup', function (e) {
     if (e.key === 'Enter') {
-        
+        limit()
+        add.click()
     }
 });
 
@@ -30,9 +31,12 @@ function limit(){
 }
 
 add.addEventListener('click', function(){
+    if (pDiv.childElementCount == 5 || inputText.value == '') {
+    return
+}
     const p = document.createElement('p')
     p.classList.add('pText');
-    pDiv.appendChild(p);
+    pDiv.appendChild(p); 
     p.innerHTML = inputText.value;
     inputText.value = '';
     
@@ -57,6 +61,9 @@ add.addEventListener('click', function(){
     newImg.addEventListener('click', function(e) {
             pDiv.removeChild(p);
             imgDiv.removeChild(newImg)
+            if (pDiv.childElementCount == 0) {
+                input.style.display = 'block';
+            }
         })
 })
 
